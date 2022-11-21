@@ -11,3 +11,4 @@ else
     echo "<p>Contraseña correcta</p>";
 else 
     echo "<p>Contraseña incorrecta</p>";
+?>
