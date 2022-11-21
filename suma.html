@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery POST</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        //Cuando el documento este cargado ejecutamos la funcion, 
+        //Si el boton con id btnDatos es clicado creamos una funcion que
+        //solo se ejecuta si el boton es pulsado, que nos carga de #lista por medio 
+        //de jquery la pagina datos.html
+        $(document).ready(function () {
+            $("#btnSuma").click(function () {
+                $.post("suma.php", 
+                    $("#formulario").serialize(),
+                    function(data, status){ 
+                        console.log($("#formulario").serialize())
+                        //$("#respSuma").html(data);
+                        document.getElementById("respSuma").innerHTML = data;
+                    }
+                )
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <form method="post" id="formulario">
+        <p>Introduzca dos valores para calcular la suma</p>
+        <input type="number" name="valor1" id="valor1">
+        <input type="number" name="valor2" id="valor2" autofocus>
+        <input type="button" id="btnSuma" value="suma"/>
+    </form>
+    <div id="respSuma"></div>
+</body>
+
+</html>
